@@ -1,213 +1,231 @@
-# The Network Simulator, Version 3
+# ML-Based Risk Prediction of Quantum Attacks on Classical Systems in 6G Networks
 
-[![codecov](https://codecov.io/gh/nsnam/ns-3-dev-git/branch/master/graph/badge.svg)](https://codecov.io/gh/nsnam/ns-3-dev-git/branch/master/)
-[![Gitlab CI](https://gitlab.com/nsnam/ns-3-dev/badges/master/pipeline.svg)](https://gitlab.com/nsnam/ns-3-dev/-/pipelines)
-[![Github CI](https://github.com/nsnam/ns-3-dev-git/actions/workflows/per_commit.yml/badge.svg)](https://github.com/nsnam/ns-3-dev-git/actions)
+## Abstract
 
-## Table of Contents
+The emergence of sixth-generation (6G) communication networks is expected to revolutionize global connectivity through ultra-low latency, intelligent networking, massive device connectivity, and integrated artificial intelligence. However, the rapid advancement of quantum computing poses significant threats to conventional cryptographic mechanisms that secure modern communication infrastructures.
 
-* [Overview](#overview-an-open-source-project)
-* [Building ns-3](#building-ns-3)
-* [Testing ns-3](#testing-ns-3)
-* [Running ns-3](#running-ns-3)
-* [ns-3 Documentation](#ns-3-documentation)
-* [Working with the Development Version of ns-3](#working-with-the-development-version-of-ns-3)
-* [Contributing to ns-3](#contributing-to-ns-3)
-* [Reporting Issues](#reporting-issues)
-* [ns-3 App Store](#ns-3-app-store)
+This project presents an Artificial Intelligence-driven risk prediction framework capable of identifying and classifying both traditional cyberattacks and quantum-enabled threats targeting classical systems operating within 6G environments. The proposed framework leverages Machine Learning techniques to analyze network traffic characteristics, detect anomalous behaviors, and predict the likelihood of successful quantum attacks before critical security breaches occur.
 
-> **NOTE**: Much more substantial information about ns-3 can be found at
-<https://www.nsnam.org>
+The system integrates network simulation, intelligent threat analysis, attack classification, and predictive security assessment to enhance cyber resilience in future-generation communication infrastructures.
 
-## Overview: An Open Source Project
+---
 
-ns-3 is a free open source project aiming to build a discrete-event
-network simulator targeted for simulation research and education.
-This is a collaborative project; we hope that
-the missing pieces of the models we have not yet implemented
-will be contributed by the community in an open collaboration
-process. If you would like to contribute to ns-3, please check
-the [Contributing to ns-3](#contributing-to-ns-3) section below.
+## Research Motivation
 
-This README excerpts some details from a more extensive
-tutorial that is maintained at:
-<https://www.nsnam.org/documentation/latest/>
+Current security architectures primarily rely on cryptographic algorithms such as:
 
-## Building ns-3
+- RSA
+- ECC (Elliptic Curve Cryptography)
+- Diffie-Hellman Key Exchange
 
-The code for the framework and the default models provided
-by ns-3 is built as a set of libraries. User simulations
-are expected to be written as simple programs that make
-use of these ns-3 libraries.
+These algorithms are vulnerable to quantum algorithms including:
 
-To build the set of default libraries and the example
-programs included in this package, you need to use the
-`ns3` tool. This tool provides a Waf-like API to the
-underlying CMake build manager.
-Detailed information on how to use `ns3` is included in the
-[quick start guide](doc/installation/source/quick-start.rst).
+- Shor's Algorithm
+- Grover's Algorithm
 
-Before building ns-3, you must configure it.
-This step allows the configuration of the build options,
-such as whether to enable the examples, tests and more.
+As quantum computing capabilities continue to advance, classical systems deployed within future 6G networks require intelligent mechanisms capable of proactively identifying and mitigating emerging quantum threats.
 
-To configure ns-3 with examples and tests enabled,
-run the following command on the ns-3 main directory:
+---
 
-```shell
-./ns3 configure --enable-examples --enable-tests
-```
+## Project Objectives
 
-Then, build ns-3 by running the following command:
+### Primary Objective
 
-```shell
-./ns3 build
-```
+Develop an AI-powered risk prediction framework capable of identifying and assessing quantum attack risks against classical communication systems in 6G networks.
 
-By default, the build artifacts will be stored in the `build/` directory.
+### Secondary Objectives
 
-### Supported Platforms
+- Simulate 6G communication environments.
+- Generate network traffic datasets.
+- Model traditional cyberattacks and quantum attack scenarios.
+- Extract traffic and security-related features.
+- Train Machine Learning models for attack classification.
+- Predict attack severity and risk levels.
+- Visualize network security analytics.
 
-The current codebase is expected to build and run on the
-set of platforms listed in the [release notes](RELEASE_NOTES.md)
-file.
 
-Other platforms may or may not work: we welcome patches to
-improve the portability of the code to these other platforms.
+---
 
-## Testing ns-3
+## Attack Categories
 
-ns-3 contains test suites to validate the models and detect regressions.
-To run the test suite, run the following command on the ns-3 main directory:
+### Traditional Cyber Attacks
 
-```shell
-./test.py
-```
+- Denial of Service (DoS)
+- Distributed Denial of Service (DDoS)
+- Spoofing Attacks
+- Man-in-the-Middle Attacks
+- Botnet Activities
+- Malware Communication
 
-More information about ns-3 tests is available in the
-[test framework](doc/manual/source/test-framework.rst) section of the manual.
+### Quantum-Based Threats
 
-## Running ns-3
+- Quantum Cryptanalysis
+- Shor-Based RSA Compromise
+- ECC Key Recovery Attacks
+- Quantum Key Interception
+- Post-Quantum Cryptographic Failure
+- Quantum Brute Force Simulations
 
-On recent Linux systems, once you have built ns-3 (with examples
-enabled), it should be easy to run the sample programs with the
-following command, such as:
+---
 
-```shell
-./ns3 run simple-global-routing
-```
+## Machine Learning Pipeline
 
-That program should generate a `simple-global-routing.tr` text
-trace file and a set of `simple-global-routing-xx-xx.pcap` binary
-PCAP trace files, which can be read by `tcpdump -n -tt -r filename.pcap`.
-The program source can be found in the `examples/routing` directory.
+### Data Collection
 
-## Running ns-3 from Python
+Network traffic is collected from simulated 6G environments using:
 
-If you do not plan to modify ns-3 upstream modules, you can get
-a pre-built version of the ns-3 python bindings.
+- NS-3 Network Simulator
+- Traffic Monitoring Tools
+- Synthetic Attack Generation Modules
 
-```shell
-pip install --user ns3
-```
+### Feature Engineering
 
-If you do not have `pip`, check their documents
-on [how to install it](https://pip.pypa.io/en/stable/installation/).
+Features extracted include:
 
-After installing the `ns3` package, you can then create your simulation python script.
-Below is a trivial demo script to get you started.
+- Packet Count
+- Throughput
+- Packet Loss Ratio
+- End-to-End Delay
+- Jitter
+- Flow Duration
+- Authentication Failure Rate
+- Encryption Anomaly Score
 
-```python
-from ns import ns
+### Model Training
 
-ns.LogComponentEnable("Simulator", ns.LOG_LEVEL_ALL)
+The project evaluates multiple Machine Learning algorithms:
 
-ns.Simulator.Stop(ns.Seconds(10))
-ns.Simulator.Run()
-ns.Simulator.Destroy()
-```
+| Algorithm | Purpose |
+|------------|----------|
+| Random Forest | Attack Classification |
+| SVM | Anomaly Detection |
+| XGBoost | Risk Prediction |
+| Gradient Boosting | Performance Benchmarking |
 
-The simulation will take a while to start, while the bindings are loaded.
-The script above will print the logging messages for the called commands.
+### Output Classes
 
-Use `help(ns)` to check the prototypes for all functions defined in the
-ns3 namespace. To get more useful results, query specific classes of
-interest and their functions e.g., `help(ns.Simulator)`.
+| Label | Description |
+|---------|-------------|
+| 0 | Normal Traffic |
+| 1 | Traditional Attack |
+| 2 | Quantum Attack |
 
-Smart pointers `Ptr<>` can be differentiated from objects by checking if
-`__deref__` is listed in `dir(variable)`. To dereference the pointer,
-use `variable.__deref__()`.
+---
 
-Most ns-3 simulations are written in C++ and the documentation is
-oriented towards C++ users. The ns-3 tutorial programs (`first.cc`,
-`second.cc`, etc.) have Python equivalents, if you are looking for
-some initial guidance on how to use the Python API. The Python
-API may not be as full-featured as the C++ API, and an API guide
-for what C++ APIs are supported or not from Python do not currently exist.
-The project is looking for additional Python maintainers to improve
-the support for future Python users.
+## Dataset
 
-## ns-3 Documentation
+The dataset consists of simulated network traffic generated from multiple attack scenarios within a 6G environment.
 
-Once you have verified that your build of ns-3 works by running
-the `simple-global-routing` example as outlined in the [running ns-3](#running-ns-3)
-section, it is quite likely that you will want to get started on reading
-some ns-3 documentation.
+Dataset Features:
 
-All of that documentation should always be available from
-the ns-3 website: <https://www.nsnam.org/documentation/>.
+- txPackets
+- rxPackets
+- throughput
+- delay
+- jitter
+- packetLoss
+- encryptionFailureRate
+- attackType
+- riskLevel
 
-This documentation includes:
+---
 
-* a tutorial
-* a reference manual
-* models in the ns-3 model library
-* a wiki for user-contributed tips: <https://www.nsnam.org/wiki/>
-* API documentation generated using doxygen: this is
-  a reference manual, most likely not very well suited
-  as introductory text:
-  <https://www.nsnam.org/doxygen/index.html>
+## Technology Stack
 
-## Working with the Development Version of ns-3
+### Programming Languages
 
-If you want to download and use the development version of ns-3, you
-need to use the tool `git`. A quick and dirty cheat sheet is included
-in the manual, but reading through the Git
-tutorials found in the Internet is usually a good idea if you are not
-familiar with it.
+- Python
+- C++
+- SQL
 
-If you have successfully installed Git, you can get
-a copy of the development version with the following command:
+### Machine Learning Libraries
 
-```shell
-git clone https://gitlab.com/nsnam/ns-3-dev.git
-```
+- Scikit-Learn
+- XGBoost
+- NumPy
+- Pandas
 
-However, we recommend to follow the GitLab guidelines for starters,
-that includes creating a GitLab account, forking the ns-3-dev project
-under the new account's name, and then cloning the forked repository.
-You can find more information in the [manual](https://www.nsnam.org/docs/manual/html/working-with-git.html).
+### Network Simulation
 
-## Contributing to ns-3
+- NS-3
 
-The process of contributing to the ns-3 project varies with
-the people involved, the amount of time they can invest
-and the type of model they want to work on, but the current
-process that the project tries to follow is described in the
-[contributing code](https://www.nsnam.org/developers/contributing-code/)
-website and in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+### Visualization
 
-## Reporting Issues
+- Matplotlib
+- Seaborn
+- Plotly
 
-If you would like to report an issue, you can open a new issue in the
-[GitLab issue tracker](https://gitlab.com/nsnam/ns-3-dev/-/issues).
-Before creating a new issue, please check if the problem that you are facing
-was already reported and contribute to the discussion, if necessary.
+### Development Environment
 
-## ns-3 App Store
+- Visual Studio Code
+- Git
+- GitHub
 
-The official [ns-3 App Store](https://apps.nsnam.org/) is a centralized directory
-listing third-party modules for ns-3 available on the Internet.
 
-More information on how to submit an ns-3 module to the ns-3 App Store is available
-in the [ns-3 App Store documentation](https://www.nsnam.org/docs/contributing/html/external.html).
+---
+
+## Performance Metrics
+
+The following metrics are used to evaluate the system:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
+- Prediction Latency
+- Detection Rate
+
+---
+
+## Expected Outcomes
+
+- Accurate classification of traditional and quantum attacks.
+- Early prediction of potential security threats.
+- Improved resilience of classical systems operating in 6G networks.
+- Scalable architecture for future quantum-secure communication frameworks.
+
+---
+
+## Future Enhancements
+
+- Deep Learning-based Threat Detection
+- Federated Learning for Distributed Security
+- Real-Time Quantum Attack Monitoring
+- Post-Quantum Cryptography Integration
+- Explainable AI (XAI) for Security Analytics
+- Blockchain-Based Security Validation
+
+---
+
+## Research Contributions
+
+This project contributes toward the development of intelligent security solutions for next-generation communication systems by combining:
+
+- Artificial Intelligence
+- Quantum Cybersecurity
+- Machine Learning
+- 6G Network Simulation
+- Predictive Threat Intelligence
+
+---
+
+## Authors
+
+Poornachandra Vatambedu
+
+Department of Cyber Security Engineering
+
+---
+
+## License
+
+This project is released under the MIT License.
+
+---
+
+## Keywords
+
+6G Networks, Quantum Computing, Cyber Security, Machine Learning, Risk Prediction, Quantum Attacks, Artificial Intelligence, NS-3, Threat Intelligence, Post-Quantum Security.
+
+
