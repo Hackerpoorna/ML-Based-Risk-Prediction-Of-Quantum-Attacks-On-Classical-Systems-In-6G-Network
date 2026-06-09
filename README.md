@@ -210,22 +210,51 @@ This project contributes toward the development of intelligent security solution
 
 ---
 
-## Authors
 
-Poornachandra Vatambedu
-
-Department of Cyber Security Engineering
-
----
-
-## License
-
-This project is released under the MIT License.
-
----
 
 ## Keywords
 
 6G Networks, Quantum Computing, Cyber Security, Machine Learning, Risk Prediction, Quantum Attacks, Artificial Intelligence, NS-3, Threat Intelligence, Post-Quantum Security.
+
+---
+
+## Project Team
+
+### Team Leader
+
+**Poornachandra Vatambedu**  
+Cyber Security Engineering  
+Project Lead, System Architecture Design, Machine Learning Model Development, Network Security Analysis, and Research Documentation.
+
+### Team Members
+
+**Sri Hasya Nallapareddy**  
+Cyber Security Engineering  
+Dataset Preparation, Feature Engineering, Testing, and Validation.
+
+**Nikhil Kumar Reddy**  
+Cyber Security Engineering  
+Network Simulation, Traffic Analysis, Attack Scenario Modeling, and Performance Evaluation.
+
+---
+
+## Project Mentor
+
+### Dr. K. Deepa Thilak
+
+Faculty Mentor  
+Department of Networking And Communication
+
+Dr. K. Deepa Thilak provided academic guidance, technical supervision, research direction, and continuous support throughout the design, implementation, and evaluation phases of the project. Her expertise and mentorship significantly contributed to the successful development of the proposed AI-driven framework for risk prediction of quantum attacks in 6G network environments.
+
+---
+
+## Acknowledgment
+
+The project team would like to express sincere gratitude to **Dr. K. Deepa Thilak** for her invaluable guidance, encouragement, and technical insights throughout this research work. Her mentorship played a crucial role in shaping the project's objectives, methodology, and successful implementation.
+
+We also acknowledge the support provided by the Department of Cyber Security Engineering and our institution for facilitating the resources and environment necessary to conduct this research.
+
+---
 
 
